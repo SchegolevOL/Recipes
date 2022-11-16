@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.App", "Recipes.App\Recipes.App.csproj", "{A980217B-7B3A-41E4-9F87-0FBC0BA2A9A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recipes.Models", "Recipes.Models\Recipes.Models.csproj", "{5EE88DC6-0F4B-4159-84A6-2C79BACC2E13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A980217B-7B3A-41E4-9F87-0FBC0BA2A9A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A980217B-7B3A-41E4-9F87-0FBC0BA2A9A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A980217B-7B3A-41E4-9F87-0FBC0BA2A9A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE88DC6-0F4B-4159-84A6-2C79BACC2E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE88DC6-0F4B-4159-84A6-2C79BACC2E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE88DC6-0F4B-4159-84A6-2C79BACC2E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE88DC6-0F4B-4159-84A6-2C79BACC2E13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
