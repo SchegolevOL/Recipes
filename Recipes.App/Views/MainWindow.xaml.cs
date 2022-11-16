@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Recipes.App
+namespace Recipes.App.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
