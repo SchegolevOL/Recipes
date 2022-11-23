@@ -41,7 +41,7 @@
             </ListBox>
             
             <StackPanel Grid.Column="1">
-                <!--TODO-->
+                
             </StackPanel>
             
         </Grid>
