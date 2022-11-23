@@ -26,16 +26,24 @@ namespace Recipes.App.ViewModels
             Recipes = new ObservableCollection<Models.Recipe>();
             Recipe = new Recipe();
             CommandSearch = new LambdaCommand(_ => true, async _=> await GetData());
+            CommandClear = new LambdaCommand(_ => true, _ => Clear());
         }
         private async Task GetData()
         {
             var r = await EdaMamApi.GetRecipesAsync(Search);
             var t = await RecipesConverter.ConvertAsync(r);
+            Recipes.Clear();
             foreach (var item in t)
             {
                 Recipes.Add(item);
             }
         }
+
+        private void Clear()
+        {
+            Search = string.Empty;
+        }
+
         private string _search;
         public string Search { get => _search; set => SetField(ref _search, value); }
 
