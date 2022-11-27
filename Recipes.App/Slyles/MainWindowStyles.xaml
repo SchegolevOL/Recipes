@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="StyleLabelSearch" TargetType="{x:Type Label}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0 0 5 0"/>        
+    </Style>
+    <Style x:Key="StyleSearch" TargetType="{x:Type TextBox}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0 0 5 0"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Width" Value="300"/>
+    </Style>
+    <Style x:Key="StyleButtonSearch" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0 0 5 0"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Width" Value="75"/>
+        <Setter Property="Background" Value="Blue"/>
+    </Style>
+    <Style x:Key="StyleButtonClear" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0 0 5 0"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Width" Value="75"/>
+        <Setter Property="Background" Value="OrangeRed"/>
+    </Style>
+    <Style x:Key="StyleButtonFavorite" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0 0 5 0"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Background" Value="Magenta"/>
+    </Style>
+    <Style x:Key="StyleList" TargetType="{x:Type ListBox}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0 0 5 0"/>
+        <Setter Property="Padding" Value="3"/>
+    </Style>
+    <Style x:Key="StyleListItem" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0 0 0 5"/>
+    </Style>
+    <Style x:Key="StylImage" TargetType="{x:Type Image}">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    <Style x:Key="StyleTitle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="Margin" Value="0 0 0 5"/>
+        <Setter Property="Background" Value="Brown"/>
+    </Style>
+    <Style x:Key="StyleIngredients" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="20"/>        
+    </Style>
+
+</ResourceDictionary>

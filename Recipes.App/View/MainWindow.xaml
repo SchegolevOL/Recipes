@@ -6,23 +6,40 @@
         xmlns:vw="clr-namespace:Recipes.App.ViewModels"    
         xmlns:local="clr-namespace:Recipes.App.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="800">
     <Window.DataContext>
         <vw:MainWindowViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary Source="..\Slyles\MainWindowStyles.xaml"/>
+    </Window.Resources>
+
+
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
-        
-        <StackPanel Grid.Row="0">
-            <Label Content="Recipe Search"/>
-            <TextBox Text="{Binding Search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Content="Search"
-                    Command="{Binding CommandSearch}"/>
-            <Button Content="Clear"
-                    Command="{Binding CommandClear}"/>
+
+        <StackPanel Grid.Row="0"
+                    Margin="0 2 0 5">
+            <StackPanel Orientation="Horizontal"
+                        Margin="7">
+                <Label Content="Recipe Search"
+                   Target="{Binding ElementName= InputSearch}"
+                       Style="{StaticResource StyleLabelSearch}"/>
+                <TextBox x:Name="Search" Text="{Binding Search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource StyleSearch}"/>
+                <Button Content="Search"
+                    Command="{Binding CommandSearch}"
+                        Style="{StaticResource StyleButtonSearch}"/>
+                <Button Content="Clear"
+                    Command="{Binding CommandClear}"
+                        Style="{StaticResource StyleButtonClear}"/>
+            </StackPanel>
+            <Button Content="Show favorite"
+                    Command="{Binding CommandShowFavorite}"
+                    Style="{StaticResource StyleButtonFavorite}"/>
         </StackPanel>
 
         <Grid Grid.Row="1">
@@ -32,23 +49,29 @@
             </Grid.ColumnDefinitions>
             <ListBox Grid.Column="0"
                      ItemsSource="{Binding Recipes}"
-                     SelectedItem="{Binding Recipe}">
+                     SelectedItem="{Binding Recipe}"
+                     Style="{StaticResource StyleList}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Title}"/>
+                        <TextBlock Text="{Binding Title}"
+                                   Style="{StaticResource StyleListItem}"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
 
             <StackPanel Grid.Column="1"
-                        DataContext="{Binding Recipe}">
-
-                <Image Source="{Binding Image}" Width="150"/>
-                <TextBlock Text="{Binding Title}"/>
-                <ListBox ItemsSource="{Binding Ingredients}"/>
-
+                        Margin="5">
+                <Image Source="{Binding Recipe.Image}" Width="150"
+                       Style="{StaticResource StylImage}"/>
+                <TextBlock Text="{Binding Recipe.Title}"
+                           Style="{StaticResource StyleTitle}"/>
+                <TextBlock Text="{Binding Recipe.Ingredients}"
+                           Style="{StaticResource StyleIngredients}"/>
+                <Button Content="Add favorite"
+                        Command="{Binding CommandSaveToDb}"
+                        Style="{StaticResource StyleButtonFavorite}"/>
             </StackPanel>
-            
+
         </Grid>
 
     </Grid>

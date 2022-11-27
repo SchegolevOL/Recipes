@@ -23,19 +23,20 @@ namespace Recipes.App.ViewModels
 
         public MainWindowViewModel()
         {
-            Recipes = new ObservableCollection<Models.Recipe>();
+            _db = new DataBase();
+            Recipes = new ObservableCollection<Recipe>();
             Recipe = new Recipe();
             CommandSearch = new LambdaCommand(_ => true, async _=> await GetData());
             CommandClear = new LambdaCommand(_ => true, _ => Clear());
+            CommandSaveToDb = new LambdaCommand(_ => true, async _ => await SaveToDbAsync());
+            CommandShowFavorite = new LambdaCommand(_ => true, _ => ShowFavorite());
         }
         private async Task GetData()
         {
-            var r = await EdaMamApi.GetRecipesAsync(Search);
-            var t = await RecipesConverter.ConvertAsync(r);
             Recipes.Clear();
-            foreach (var item in t)
+            await foreach (var item in RecipesConverter.ConvertAsync(await EdaMamApi.GetRecipesAsync(Search)))
             {
-                Recipes.Add(item);
+                Recipes.Add( item);
             }
         }
 
@@ -44,11 +45,30 @@ namespace Recipes.App.ViewModels
             Search = string.Empty;
         }
 
+        private async Task SaveToDbAsync()
+        {
+            await _db.AddRecipeAsync(Recipe);
+        }
+
+        private void ShowFavorite()
+        {
+            Recipes.Clear();
+            foreach (var recipe in _db.Recipes)
+            {
+                Recipes.Add(recipe);
+            }
+        }
+
+
+        private DataBase _db;
+
         private string _search;
         public string Search { get => _search; set => SetField(ref _search, value); }
 
         public LambdaCommand CommandSearch { get; set; }
         public LambdaCommand CommandClear { get; set; }
+        public LambdaCommand CommandSaveToDb { get; set; }
+        public LambdaCommand CommandShowFavorite { get; set; }
 
     }
 }
